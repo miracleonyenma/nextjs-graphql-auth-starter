@@ -3,7 +3,7 @@ export default function Home() {
     <main>
       <section className="site-section">
         <div className="wrapper">
-          <h1 className="text-center text-5xl font-bold">Welcome to Sparkit</h1>
+          <h1 className="text-center text-5xl font-bold">Welcome to Starter</h1>
           <p className="text-center">
             A platform for developers to build and share their projects.
           </p>
