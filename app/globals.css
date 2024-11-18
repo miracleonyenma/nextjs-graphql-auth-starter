@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Eczar:wght@400..800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -71,7 +71,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-gray-50 text-lg text-foreground;
+    @apply bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200;
   }
   .site-section {
     @apply p-4;
@@ -90,15 +90,11 @@
   }
 
   .btn.primary {
-    @apply bg-gray-800 text-gray-100 ring-offset-2 ring-offset-gray-50 hover:bg-gray-700 active:ring-2 active:ring-gray-800;
+    @apply bg-gray-800 text-gray-100 ring-offset-2 ring-offset-gray-50 hover:bg-gray-700 active:ring-2 active:ring-gray-800 dark:bg-gray-200 dark:text-gray-800 dark:hover:bg-gray-300 dark:active:ring-gray-200;
   }
 
   .btn.secondary {
-    @apply bg-secondary text-secondary-foreground ring-offset-secondary-foreground hover:bg-secondary-foreground active:ring-secondary ring-offset-2 active:ring-2;
-  }
-
-  .btn.destructive {
-    @apply bg-destructive text-destructive-foreground ring-offset-destructive-foreground hover:bg-destructive-foreground active:ring-destructive ring-offset-2 active:ring-2;
+    @apply bg-gray-100 text-gray-800 ring-offset-2 ring-offset-gray-50 hover:bg-gray-200 active:ring-2 active:ring-gray-800 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800 dark:active:ring-gray-900;
   }
 
   .btn.ghost {

@@ -252,7 +252,7 @@ const AuthForm: React.FC<{
                 <div className="form-control flex grow flex-col gap-2">
                   {/* <label htmlFor="firstName">First Name</label> */}
                   <div className="form-input">
-                    <Personalcard className="icon" />
+                    <Personalcard variant="Bulk" className="icon" />
                     <input
                       aria-label="First Name"
                       id="firstName"
@@ -263,7 +263,7 @@ const AuthForm: React.FC<{
                   </div>
                   {formik.touched.firstName && formik.errors.firstName ? (
                     <div className="form-error">
-                      {/* <Danger variant="TwoTone" className="icon h-4 w-4" /> */}
+                      {/* <Danger variant="Bulk" className="icon h-4 w-4" /> */}
                       <span className="dark:text-red-200">
                         {formik.errors.firstName}
                       </span>
@@ -273,7 +273,7 @@ const AuthForm: React.FC<{
                 <div className="form-control flex grow flex-col gap-2">
                   {/* <label htmlFor="lastName">Last Name</label> */}
                   <div className="form-input">
-                    <Personalcard className="icon" />
+                    <Personalcard variant="Bulk" className="icon" />
                     <input
                       aria-label="Last Name"
                       id="lastName"
@@ -284,7 +284,7 @@ const AuthForm: React.FC<{
                   </div>
                   {formik.touched.lastName && formik.errors.lastName ? (
                     <div className="form-error">
-                      {/* <Danger variant="TwoTone" className="icon h-4 w-4" /> */}
+                      {/* <Danger variant="Bulk" className="icon h-4 w-4" /> */}
                       <span className="dark:text-red-200">
                         {formik.errors.lastName}
                       </span>
@@ -297,7 +297,7 @@ const AuthForm: React.FC<{
               <div className="form-control flex grow flex-col gap-2">
                 {/* <label htmlFor="email">Email Address</label> */}
                 <div className="form-input">
-                  <Sms variant="TwoTone" className="icon" />
+                  <Sms variant="Bulk" className="icon" />
                   <input
                     aria-label="Email Address"
                     id="email"
@@ -308,7 +308,7 @@ const AuthForm: React.FC<{
                 </div>
                 {formik.touched.email && formik.errors.email ? (
                   <div className="form-error">
-                    {/* <Danger variant="TwoTone" className="icon h-4 w-4" /> */}
+                    {/* <Danger variant="Bulk" className="icon h-4 w-4" /> */}
                     <span className="dark:text-red-200">
                       {formik.errors.email}
                     </span>
@@ -320,7 +320,7 @@ const AuthForm: React.FC<{
               <div className="form-control flex grow flex-col gap-2">
                 {/* <label htmlFor="password">Password</label> */}
                 <div className="form-input">
-                  <PasswordCheck variant="TwoTone" className="icon" />
+                  <PasswordCheck variant="Bulk" className="icon" />
                   <input
                     aria-label="Password"
                     id="password"
@@ -348,7 +348,7 @@ const AuthForm: React.FC<{
                 </div>
                 {formik.touched.password && formik.errors.password ? (
                   <div className="form-error">
-                    {/* <Danger variant="TwoTone" className="icon h-4 w-4" /> */}
+                    {/* <Danger variant="Bulk" className="icon h-4 w-4" /> */}
                     <span className="dark:text-red-200">
                       {formik.errors.password}
                     </span>

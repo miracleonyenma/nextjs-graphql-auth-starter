@@ -4,7 +4,7 @@ import tailwindForms from "@tailwindcss/forms";
 import defualtTheme from "tailwindcss/defaultTheme";
 
 const config: Config = {
-  darkMode: ["class"],
+  darkMode: "media",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -13,7 +13,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Darker Grotesque", ...defualtTheme.fontFamily.sans],
+        sans: ["Eczar", ...defualtTheme.fontFamily.sans],
       },
       colors: {
         background: "hsl(var(--background))",

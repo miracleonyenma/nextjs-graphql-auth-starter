@@ -7,7 +7,7 @@ import { useUserStore } from "@/store/useUserStore";
 const SiteHeader = () => {
   const { user } = useUserStore();
   return (
-    <header className="site-header sticky top-0 w-full border-b border-gray-200 bg-white p-4 py-2">
+    <header className="site-header sticky top-0 w-full border-b border-gray-200 bg-white p-4 py-2 dark:border-gray-700 dark:bg-gray-900">
       <div className="wrapper mx-auto flex max-w-5xl justify-between gap-4">
         <Link href="/">
           <SiteLogo />
