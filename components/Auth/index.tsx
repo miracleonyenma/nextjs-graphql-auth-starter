@@ -34,7 +34,7 @@ const Auth = () => {
   useEffect(() => {
     console.log("WOW");
 
-    !user?.id && handleGetUser();
+    if (!user?.id) handleGetUser();
   }, [user, handleGetUser, pathname]);
   return null;
 };
