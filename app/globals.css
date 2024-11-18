@@ -71,16 +71,13 @@
     @apply border-border;
   }
   body {
-    @apply bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200;
+    @apply bg-gray-50 text-gray-700 dark:bg-gray-900 dark:text-gray-200;
   }
   .site-section {
-    @apply p-4;
+    @apply p-4 py-24;
   }
   .site-section > .wrapper {
     @apply mx-auto max-w-4xl;
-  }
-  .site-section > .wrapper > * + * {
-    @apply mt-4;
   }
 }
 
@@ -90,7 +87,7 @@
   }
 
   .btn.primary {
-    @apply bg-gray-800 text-gray-100 ring-offset-2 ring-offset-gray-50 hover:bg-gray-700 active:ring-2 active:ring-gray-800 dark:bg-gray-200 dark:text-gray-800 dark:hover:bg-gray-300 dark:active:ring-gray-200;
+    @apply bg-green-600 text-green-100 ring-offset-2 ring-offset-green-50 hover:bg-green-700 active:ring-2 active:ring-green-600 dark:bg-green-200 dark:text-green-600 dark:hover:bg-green-300 dark:active:ring-green-200;
   }
 
   .btn.secondary {
@@ -99,6 +96,10 @@
 
   .btn.ghost {
     @apply bg-transparent text-gray-800 ring-offset-2 ring-offset-gray-50 hover:bg-gray-50 active:ring-2 active:ring-gray-800;
+  }
+
+  .btn.lg {
+    @apply px-6 py-3 text-xl;
   }
 
   .btn:has(> .icon:first-child) {
