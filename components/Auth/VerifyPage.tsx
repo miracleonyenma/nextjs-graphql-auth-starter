@@ -16,22 +16,22 @@ import { Sms } from "iconsax-react";
 import sendVerificationOTP from "@/utils/auth/sendVerificationOTP";
 import verifyOTP from "@/utils/auth/verifyOTP";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const sendRequest = async (path: string, body: { [key: string]: any }) => {
-  const res = await fetch(path, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  });
+// // eslint-disable-next-line @typescript-eslint/no-explicit-any
+// const sendRequest = async (path: string, body: { [key: string]: any }) => {
+//   const res = await fetch(path, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(body),
+//   });
 
-  if (!res.ok) {
-    throw await res.text();
-  }
-  const data = await res.json();
-  return data;
-};
+//   if (!res.ok) {
+//     throw await res.text();
+//   }
+//   const data = await res.json();
+//   return data;
+// };
 
 const VerifyEmailPage = () => {
   const searchParams = useSearchParams();

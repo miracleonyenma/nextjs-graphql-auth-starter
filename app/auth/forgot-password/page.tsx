@@ -4,23 +4,13 @@ import Loader from "@/components/Loader";
 import requestPasswordReset from "@/utils/auth/requestPasswordReset";
 
 import { useFormik } from "formik";
-import {
-  ArrowLeft2,
-  Back,
-  Eye,
-  EyeSlash,
-  PasswordCheck,
-  Sms,
-} from "iconsax-react";
+import { ArrowLeft2, Sms } from "iconsax-react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 import * as Yup from "yup";
 
 const ForgotPassword = () => {
-  const router = useRouter();
   useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
 

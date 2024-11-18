@@ -1,7 +1,7 @@
 import Loader from "@/components/Loader";
 import resetPassword from "@/utils/auth/resetPassword";
 import { useFormik } from "formik";
-import { ArrowLeft2, Back, Eye, EyeSlash, PasswordCheck } from "iconsax-react";
+import { ArrowLeft2, Eye, EyeSlash, PasswordCheck } from "iconsax-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
@@ -48,7 +48,7 @@ const AuthResetPassword = () => {
     }),
     onSubmit: async (values) => {
       console.log("🥋🥋🥋🥋🥋🥋 ~ values: ", values);
-      token &&
+      if (token)
         toast.promise(
           resetPassword({ password: values.password, token }, "/api/graphql"),
           {

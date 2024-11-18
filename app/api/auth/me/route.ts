@@ -2,7 +2,7 @@ import getMe from "@/utils/auth/me";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
-const GET = async (request: Request, response: NextResponse) => {
+const GET = async (request: Request) => {
   const cookiesStore = cookies();
   const accessToken = cookiesStore.get("accessToken");
 
@@ -12,7 +12,7 @@ const GET = async (request: Request, response: NextResponse) => {
 
   const data = await getMe({ token: accessToken.value });
 
-  data?.data?.me &&
+  if (data?.data?.me)
     cookiesStore.set("user", JSON.stringify(data.data.me), {
       expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 3), // 3 days
     });
