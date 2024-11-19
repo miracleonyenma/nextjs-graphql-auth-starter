@@ -83,31 +83,68 @@
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2 font-medium transition-all hover:scale-[1.025] active:scale-[0.975];
-  }
-
-  .btn.primary {
-    @apply bg-green-600 text-green-100 ring-offset-2 ring-offset-green-50 hover:bg-green-700 active:ring-2 active:ring-green-600 dark:bg-green-200 dark:text-green-600 dark:hover:bg-green-300 dark:active:ring-green-200;
+    @apply inline-flex w-fit items-center justify-center gap-2 rounded-xl border border-gray-300 bg-gray-200 px-4 py-3 font-semibold text-gray-600 shadow-inner shadow-white transition-all hover:brightness-125 focus:outline-none focus:ring focus:ring-gray-200 focus:ring-offset-2 focus:ring-offset-gray-50 active:scale-95 active:shadow-gray-300/80;
+    @apply dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200 dark:shadow-gray-600 dark:ring-offset-gray-950 dark:focus:ring-gray-600 dark:focus:ring-offset-gray-950 dark:active:shadow-gray-900;
   }
 
   .btn.secondary {
-    @apply bg-gray-100 text-gray-800 ring-offset-2 ring-offset-gray-50 hover:bg-gray-200 active:ring-2 active:ring-gray-800 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800 dark:active:ring-gray-900;
+    @apply border-gray-700 bg-gray-700 text-gray-50 shadow-gray-400 focus:ring-gray-500 active:shadow-gray-700/60;
+  }
+
+  .btn.primary {
+    @apply border-green-800 bg-green-700 text-green-50 shadow-green-400 focus:ring-green-500 active:shadow-green-800/60;
+  }
+
+  .btn.danger {
+    @apply border-green-700 bg-green-600 text-green-50 shadow-green-400 focus:ring-green-500 active:shadow-green-700/60;
   }
 
   .btn.ghost {
-    @apply bg-transparent text-gray-800 ring-offset-2 ring-offset-gray-50 hover:bg-gray-50 active:ring-2 active:ring-gray-800;
+    @apply border-transparent bg-transparent shadow-none focus:ring-transparent focus:ring-offset-transparent;
+  }
+
+  .btn:has(.icon:first-child) {
+    @apply pl-2;
+  }
+
+  .btn:has(.icon:last-child) {
+    @apply pr-2;
+  }
+
+  .btn.sm {
+    @apply px-2 py-1.5 text-sm;
+  }
+
+  .btn.sm .icon {
+    @apply h-4 w-4;
+  }
+
+  .btn.sm:has(.icon:first-child) {
+    @apply pl-1.5;
+  }
+
+  .btn.sm:has(.icon:last-child) {
+    @apply pr-1.5;
+  }
+
+  .btn.md {
+    @apply px-3 py-2 text-base;
+  }
+
+  .btn.md .icon {
+    @apply h-5 w-5;
+  }
+
+  .btn.md:has(.icon:first-child) {
+    @apply pl-2;
+  }
+
+  .btn.md:has(.icon:last-child) {
+    @apply pr-2;
   }
 
   .btn.lg {
     @apply px-6 py-3 text-xl;
-  }
-
-  .btn:has(> .icon:first-child) {
-    @apply pl-2;
-  }
-
-  .btn:has(> .icon:last-child) {
-    @apply pr-2;
   }
 
   .btn:disabled {
@@ -119,27 +156,38 @@
   }
 
   .form-input {
-    @apply flex w-full items-center gap-2 border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-700;
-    @apply focus-within:ring-2 focus-within:ring-gray-100 focus-within:ring-offset-2 focus-within:ring-offset-gray-50 dark:focus-within:ring-gray-700 dark:focus-within:ring-offset-gray-900;
-    @apply transition-all;
+    @apply relative w-full rounded-xl border border-gray-200 bg-gray-100 px-4 py-2 font-semibold text-gray-600 shadow-inner shadow-white focus-within:border-green-500 focus-within:outline-none focus-within:ring focus-within:ring-green-500 focus:border-green-500 focus:outline-none focus:ring focus:ring-green-500;
+    @apply dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200 dark:shadow-gray-700;
   }
 
-  .form-input > .icon {
-    @apply shrink-0 text-gray-600 dark:text-gray-400;
+  .form-input::placeholder {
+    @apply text-gray-400;
+    @apply dark:text-gray-500;
   }
 
-  .form-input:has(> .icon:is(:first-child), > .icon:is(:last-child)) {
-    @apply !pl-4;
+  .form-input.cont .form-input {
+    @apply border-none bg-transparent shadow-none outline-none ring-0;
   }
 
-  .form-input:has(> .icon:is(:last-child)) {
-    @apply !pr-4;
+  .form-input input {
+    @apply w-full rounded-xl !bg-transparent p-3 py-4;
   }
-
-  /* .form-input:has(input:is([type="text"], [type="email"], [type="password"], [type="search"], [type="tel"], [type="url"], [type="number"], [type="date"], [type="time"], [type="datetime-local"], [type="month"], [type="week"], [type="color"], [type="file"], [type="range"], [type="hidden"], [type="image"], [type="submit"], [type="reset"], [type="button"], [type="checkbox"], [type="radio"], [type="range"], [type="search"], [type="tel"], [type="url"], [type="number"], [type="date"], [type="time"], [type="datetime-local"], [type="month"], [type="week"], [type="color"], [type="file"], [type="range"], [type="hidden"], [type="image"], [type="submit"], [type="reset"], [type="button"], [type="checkbox"], [type="radio"], [type="range"], [type="search"], [type="tel"], [type="url"], [type="number"], [type="date"], [type="time"], [type="datetime-local"], [type="month"], [type="week"], [type="color"], [type="file"], [type="range"], [type="hidden"], [type="image"], [type="submit"], [type="reset"], [type="button"], [type="checkbox"], [type="radio"], [type="range"], [type="search"], [type="tel"], [type="url"], [type="number"], [type="date"], [type="time"], [type="datetime-local"], [type="month"], [type="week"], [type="color"], [type="file"], [type="range"], [type="hidden"], [type="image"], [type="submit"], [type="reset"], [type="button"], [type="checkbox"], [type="radio"], [type="range"], [type="search"], [type="tel"], [type="url"], [type="number"], [type="date"], [type="time"], [type="datetime-local"], [type="month"], [type="week"], [type="color"], [type="file"], [type="range"], [type="hidden"], [type="image"], [type="submit"], ) */
 
   .form-input:has(input) {
     @apply p-0;
+  }
+
+  .form-input:has(> .icon),
+  .form-input:has(> .icon + input) {
+    @apply flex items-center pl-3;
+  }
+
+  .form-input:has(> .icon) > .icon {
+    @apply h-6 w-6;
+  }
+
+  .form-input:not(:has(> .btn.ghost)):has(> .btn) {
+    @apply rounded-2xl pr-2;
   }
 
   .form-input > input {

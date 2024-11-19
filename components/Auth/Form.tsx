@@ -332,7 +332,7 @@ const AuthForm: React.FC<{
                     <button
                       type="button"
                       onClick={() => setShowPassword(false)}
-                      className="btn bg-transparent"
+                      className="btn ghost"
                     >
                       <EyeSlash className="icon" />
                     </button>
@@ -340,7 +340,7 @@ const AuthForm: React.FC<{
                     <button
                       type="button"
                       onClick={() => setShowPassword(true)}
-                      className="btn bg-transparent"
+                      className="btn ghost"
                     >
                       <Eye className="icon" />
                     </button>
