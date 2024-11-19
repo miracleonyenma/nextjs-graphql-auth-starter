@@ -36,7 +36,6 @@ import {
 } from "@/components/ui/drawer";
 import { useRouter } from "next/navigation";
 import { useUserStore } from "@/store/useUserStore";
-import loginUser from "@/utils/auth/loginUser";
 import Loader from "@/components/Loader";
 import registerUser from "@/utils/auth/registerUser";
 
@@ -182,13 +181,23 @@ const AuthForm: React.FC<{
       }
       if (type == "login") {
         toast.promise(
-          loginUser(
-            {
+          // loginUser(
+          //   {
+          //     email: values.email.trim().toLowerCase(),
+          //     password: values.password.trim(),
+          //   },
+          //   "/api/graphql",
+          // )
+          fetch("/api/auth/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
               email: values.email.trim().toLowerCase(),
               password: values.password.trim(),
-            },
-            "/api/graphql",
-          ),
+            }),
+          }).then((res) => res.json()),
           {
             loading: (() => {
               setLoading(true);
