@@ -2,9 +2,9 @@ import { cookies } from "next/headers";
 
 const GET = async () => {
   try {
-    cookies().set("accessToken", "", { expires: new Date() });
-    cookies().set("refreshToken", "", { expires: new Date() });
-    cookies().set("user", "", { expires: new Date() });
+    (await cookies()).set("accessToken", "", { expires: new Date() });
+    (await cookies()).set("refreshToken", "", { expires: new Date() });
+    (await cookies()).set("user", "", { expires: new Date() });
 
     return Response.json({ success: true });
   } catch (error) {

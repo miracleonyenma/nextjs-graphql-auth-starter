@@ -32,9 +32,9 @@ const GET = async (request: NextRequest) => {
     const { user, accessToken, refreshToken } = googleAuth;
 
     if (accessToken && refreshToken) {
-      cookies().set("accessToken", accessToken);
-      cookies().set("refreshToken", refreshToken);
-      cookies().set("user", JSON.stringify(user));
+      (await cookies()).set("accessToken", accessToken);
+      (await cookies()).set("refreshToken", refreshToken);
+      (await cookies()).set("user", JSON.stringify(user));
     }
 
     return NextResponse.redirect(`${APP_URL}/`);

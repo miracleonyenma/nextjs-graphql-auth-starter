@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
 const GET = async (request: Request) => {
-  const cookiesStore = cookies();
+  const cookiesStore = await cookies();
   const accessToken = cookiesStore.get("accessToken");
 
   if (!accessToken) {
