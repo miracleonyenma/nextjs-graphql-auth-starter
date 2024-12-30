@@ -1,5 +1,3 @@
-import StarterIcon from "@/components/Icon/Starter";
-
 const SiteLogo = () => {
   return (
     <figure className="flex items-center gap-1 text-indigo-400 dark:text-indigo-400">

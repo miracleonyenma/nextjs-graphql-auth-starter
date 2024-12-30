@@ -8,19 +8,19 @@ const Logout = () => {
   const { setUser } = useUserStore();
   const router = useRouter();
 
-  const handleLogout = async () => {
-    const res = await fetch("/api/auth/logout");
-    const data = await res.json();
-    console.log({ data });
-
-    setUser(null);
-
-    router.push("/");
-  };
-
   useEffect(() => {
+    const handleLogout = async () => {
+      const res = await fetch("/api/auth/logout");
+      const data = await res.json();
+      console.log({ data });
+
+      setUser(null);
+
+      router.push("/");
+    };
+
     handleLogout();
-  }, []);
+  }, [setUser, router]);
   return (
     <section className="site-section flex w-full flex-col max-lg:px-0 lg:justify-center">
       <div className="wrapper">
