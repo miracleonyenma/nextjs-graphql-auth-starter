@@ -26,8 +26,8 @@ export default function RootLayout({
         <SiteHeader />
         <Auth />
         <div>{children}</div>
+        <Toaster position="top-center" offset={"2rem"} theme="system" />
       </body>
-      <Toaster position="top-center" offset={"2rem"} theme="system" />
     </html>
   );
 }

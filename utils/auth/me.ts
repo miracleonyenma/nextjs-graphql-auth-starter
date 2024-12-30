@@ -37,7 +37,7 @@ const getMe = async ({ token }: { token: string }, url?: string) => {
       headers,
     );
 
-    console.log("🚀 ~ file: me.ts ~ line 52 ~ getMe ~ data", data);
+    // console.log("🚀 ~ file: me.ts ~ line 52 ~ getMe ~ data", data);
 
     return data;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
