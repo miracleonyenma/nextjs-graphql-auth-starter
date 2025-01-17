@@ -12,7 +12,7 @@ const AuthLoginPage = () => {
             </h1>
             <p>
               Don&apos;t have an account?{" "}
-              <Link href="/auth/register" className="text-gray-600 underline">
+              <Link href="/register" className="text-gray-600 underline">
                 Sign up
               </Link>
             </p>

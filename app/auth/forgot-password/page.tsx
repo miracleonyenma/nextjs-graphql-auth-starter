@@ -58,7 +58,11 @@ const ForgotPassword = () => {
           <header className="section-header my-12">
             <div className="wrapper flex flex-col items-start gap-4">
               <Link className="btn ghost" href="/auth/login">
-                <ArrowLeft2 variant="TwoTone" className="icon" />
+                <ArrowLeft2
+                  variant="Bulk"
+                  color="currentColor"
+                  className="icon"
+                />
                 Back to login
               </Link>
               <h1 className="mb-2 text-xl font-bold lg:text-5xl">
@@ -73,7 +77,7 @@ const ForgotPassword = () => {
                 <div className="form-control flex grow flex-col gap-2">
                   {/* <label htmlFor="email">Password</label> */}
                   <div className="form-input">
-                    <Sms variant="TwoTone" className="icon" />
+                    <Sms variant="Bulk" color="currentColor" className="icon" />
                     <input
                       aria-label="Confirm email"
                       id="email"
@@ -84,7 +88,7 @@ const ForgotPassword = () => {
                   </div>
                   {formik.touched.email && formik.errors.email ? (
                     <div className="form-error">
-                      {/* <Danger variant="TwoTone" className="icon h-4 w-4" /> */}
+                      {/* <Danger variant="Bulk" color="currentColor" className="icon h-4 w-4" /> */}
                       <span className="dark:text-red-200">
                         {formik.errors.email}
                       </span>

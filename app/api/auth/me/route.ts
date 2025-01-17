@@ -7,7 +7,11 @@ const GET = async (request: Request) => {
   const accessToken = cookiesStore.get("accessToken");
 
   if (!accessToken) {
-    return NextResponse.redirect(new URL("/auth/register", request.url));
+    // return NextResponse.redirect(new URL("/auth/register", request.url));
+    const url = new URL("/auth/register", request.url);
+    console.log("🚀 ~ file: route.ts ~ line 15 ~ GET ~ url", url);
+
+    return NextResponse.json({ success: false });
   }
 
   const data = await getMe({ token: accessToken.value });
