@@ -11,7 +11,7 @@ const HostSans = Host_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Memoire",
+  title: "Commitments",
   description: "Keep your thoughts in one place",
 };
 

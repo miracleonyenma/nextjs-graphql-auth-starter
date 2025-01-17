@@ -4,13 +4,14 @@ export default function Home() {
   return (
     <main>
       <section className="site-section">
-        <div className="wrapper flex flex-col items-center gap-2">
-          <h1 className="text-center text-5xl font-bold lg:text-7xl">
-            Keep track of issues, find solutions faster.
+        <div className="wrapper flex flex-col items-center gap-4">
+          <h1 className="text-center text-5xl font-bold lg:text-8xl">
+            Turn Every Commit into a Commitment!
           </h1>
           <p className="mx-auto text-center text-lg lg:w-4/5 lg:text-xl">
-            Get updates on issues that arise, find solutions with all the help
-            you can get and keep accessible for the next person.
+            Turn every commit into an announcement, every issue into a solution,
+            and every collaboration into progress. Keep your team informed,
+            aligned, and ready to tackle anything.
           </p>
           <Link href={"/auth/register"} className="btn primary lg">
             Get Started
