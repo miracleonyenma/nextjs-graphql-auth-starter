@@ -36,10 +36,12 @@ import verifyOTP from "@/utils/auth/verifyOTP";
 const VerifyEmailPage = () => {
   const searchParams = useSearchParams();
   const email = searchParams.get("email");
+  const sent = searchParams.get("sent");
   const [value, setValue] = useState("");
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
   const [userEmail, setUserEmail] = useState(email);
+  const [sentEmail, setSentEmail] = useState<boolean>(sent === "true");
 
   const validationSchema = Yup.object({
     email: Yup.string().email("Please enter a valid email address"),
@@ -47,7 +49,7 @@ const VerifyEmailPage = () => {
 
   const formik = useFormik({
     initialValues: {
-      email: "",
+      email: email || "",
     },
     validationSchema,
     onSubmit: async (values) => {
@@ -62,6 +64,7 @@ const VerifyEmailPage = () => {
           success: (data) => {
             console.log("🪵🪵🪵🪵🪵 ~ sendVerificationOTP data:", data);
             setUserEmail(values.email);
+            setSentEmail(true);
             return "Verfication code sent successfully!";
           },
           error: (err) => {
@@ -119,7 +122,7 @@ const VerifyEmailPage = () => {
   };
 
   return (
-    <section className="site-section flex w-full flex-col max-lg:px-0 lg:justify-center">
+    <section className="site-section flex w-full flex-col lg:justify-center">
       <div className="wrapper">
         <header className="section-header my-12">
           <div className="wrapper">
@@ -133,7 +136,7 @@ const VerifyEmailPage = () => {
           </div>
         </header>
         <AnimatePresence>
-          {userEmail ? (
+          {userEmail && sentEmail ? (
             <motion.div
               initial={{
                 opacity: 0,
@@ -150,6 +153,7 @@ const VerifyEmailPage = () => {
               className="flex flex-col gap-6"
             >
               <InputOTP
+                type="text"
                 maxLength={6}
                 value={value}
                 onChange={(value) => setValue(value)}
@@ -160,7 +164,7 @@ const VerifyEmailPage = () => {
                     <InputOTPSlot
                       key={index}
                       index={index}
-                      className="form-input !rounded-none !border-gray-300 capitalize lg:text-xl"
+                      className="form-input !rounded-xl text-lg capitalize lg:text-2xl"
                     />
                   ))}
                 </InputOTPGroup>
@@ -200,7 +204,7 @@ const VerifyEmailPage = () => {
                 <div className="form-control flex grow flex-col gap-2">
                   {/* <label htmlFor="email">Email Address</label> */}
                   <div className="form-input">
-                    <Sms variant="TwoTone" className="icon" />
+                    <Sms variant="Bulk" color="currentColor" className="icon" />
                     <input
                       aria-label="Email Address"
                       id="email"
@@ -211,7 +215,7 @@ const VerifyEmailPage = () => {
                   </div>
                   {formik.touched.email && formik.errors.email ? (
                     <div className="form-error">
-                      {/* <Danger variant="TwoTone" className="icon h-4 w-4" /> */}
+                      {/* <Danger variant="Bulk" color="currentColor" className="icon h-4 w-4" /> */}
                       <span className="dark:text-red-200">
                         {formik.errors.email}
                       </span>

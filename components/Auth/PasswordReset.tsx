@@ -81,8 +81,12 @@ const AuthResetPassword = () => {
       <div className="wrapper">
         <header className="section-header my-12">
           <div className="wrapper flex flex-col items-start gap-4">
-            <Link className="btn" href="/auth/login">
-              <ArrowLeft2 variant="TwoTone" className="icon" />
+            <Link className="btn ghost" href="/auth/login">
+              <ArrowLeft2
+                variant="Bulk"
+                color="currentColor"
+                className="icon"
+              />
               Back to login
             </Link>
             <h1 className="mb-2 text-xl font-bold lg:text-5xl">
@@ -97,7 +101,11 @@ const AuthResetPassword = () => {
               <div className="form-control flex grow flex-col gap-2">
                 {/* <label htmlFor="password">Password</label> */}
                 <div className="form-input">
-                  <PasswordCheck variant="TwoTone" className="icon" />
+                  <PasswordCheck
+                    variant="Bulk"
+                    color="currentColor"
+                    className="icon"
+                  />
                   <input
                     aria-label="Password"
                     id="password"
@@ -105,27 +113,30 @@ const AuthResetPassword = () => {
                     placeholder="Password"
                     {...formik.getFieldProps("password")}
                   />
-                  {showPassword ? (
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword(false)}
-                      className="btn bg-transparent"
-                    >
-                      <EyeSlash className="icon" />
-                    </button>
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword(true)}
-                      className="btn bg-transparent"
-                    >
-                      <Eye className="icon" />
-                    </button>
-                  )}
+
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="btn ghost"
+                  >
+                    {showPassword ? (
+                      <EyeSlash
+                        className="icon"
+                        variant="Bulk"
+                        color="currentColor"
+                      />
+                    ) : (
+                      <Eye
+                        className="icon"
+                        variant="Bulk"
+                        color="currentColor"
+                      />
+                    )}
+                  </button>
                 </div>
                 {formik.touched.password && formik.errors.password ? (
                   <div className="form-error">
-                    {/* <Danger variant="TwoTone" className="icon h-4 w-4" /> */}
+                    {/* <Danger variant="Bulk" color="currentColor" className="icon h-4 w-4" /> */}
                     <span className="dark:text-red-200">
                       {formik.errors.password}
                     </span>
@@ -135,7 +146,11 @@ const AuthResetPassword = () => {
               <div className="form-control flex grow flex-col gap-2">
                 {/* <label htmlFor="password">Password</label> */}
                 <div className="form-input">
-                  <PasswordCheck variant="TwoTone" className="icon" />
+                  <PasswordCheck
+                    variant="Bulk"
+                    color="currentColor"
+                    className="icon"
+                  />
                   <input
                     aria-label="Confirm password"
                     id="confirmPassword"
@@ -147,19 +162,27 @@ const AuthResetPassword = () => {
                   <button
                     type="button"
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    className="btn bg-transparent"
+                    className="btn ghost"
                   >
                     {showConfirmPassword ? (
-                      <EyeSlash className="icon" />
+                      <EyeSlash
+                        className="icon"
+                        variant="Bulk"
+                        color="currentColor"
+                      />
                     ) : (
-                      <Eye className="icon" />
+                      <Eye
+                        className="icon"
+                        variant="Bulk"
+                        color="currentColor"
+                      />
                     )}
                   </button>
                 </div>
                 {formik.touched.confirmPassword &&
                 formik.errors.confirmPassword ? (
                   <div className="form-error">
-                    {/* <Danger variant="TwoTone" className="icon h-4 w-4" /> */}
+                    {/* <Danger variant="Bulk" color="currentColor" className="icon h-4 w-4" /> */}
                     <span className="dark:text-red-200">
                       {formik.errors.confirmPassword}
                     </span>

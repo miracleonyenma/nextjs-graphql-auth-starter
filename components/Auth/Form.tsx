@@ -63,7 +63,10 @@ const AuthVerifyEmailPrompt: React.FC<{
               enter the code to verify your email.
             </DialogDescription>
           </DialogHeader>
-          <Link href={`/auth/verify?email=${email}`} className="btn primary">
+          <Link
+            href={`/auth/verify?email=${email}&sent=true`}
+            className="btn primary"
+          >
             Verify Email
           </Link>
         </DialogContent>
@@ -197,7 +200,12 @@ const AuthForm: React.FC<{
               email: values.email.trim().toLowerCase(),
               password: values.password.trim(),
             }),
-          }).then((res) => res.json()),
+          }).then(async (res) => {
+            if (!res.ok) {
+              throw new Error(await res.text());
+            }
+            return res.json();
+          }),
           {
             loading: (() => {
               setLoading(true);
@@ -218,6 +226,8 @@ const AuthForm: React.FC<{
             },
             error: (error) => {
               setLoading(false);
+              console.log("🚨🚨🚨🚨🚨🚨 ~ handleAuth error: ", error);
+
               return (
                 <>
                   <span>{error.message}</span>
@@ -261,7 +271,11 @@ const AuthForm: React.FC<{
                 <div className="form-control flex grow flex-col gap-2">
                   {/* <label htmlFor="firstName">First Name</label> */}
                   <div className="form-input">
-                    <Personalcard variant="Bulk" className="icon" />
+                    <Personalcard
+                      variant="Bulk"
+                      color="currentColor"
+                      className="icon"
+                    />
                     <input
                       aria-label="First Name"
                       id="firstName"
@@ -272,7 +286,7 @@ const AuthForm: React.FC<{
                   </div>
                   {formik.touched.firstName && formik.errors.firstName ? (
                     <div className="form-error">
-                      {/* <Danger variant="Bulk" className="icon h-4 w-4" /> */}
+                      {/* <Danger variant="Bulk" color="currentColor" className="icon h-4 w-4" /> */}
                       <span className="dark:text-red-200">
                         {formik.errors.firstName}
                       </span>
@@ -282,7 +296,11 @@ const AuthForm: React.FC<{
                 <div className="form-control flex grow flex-col gap-2">
                   {/* <label htmlFor="lastName">Last Name</label> */}
                   <div className="form-input">
-                    <Personalcard variant="Bulk" className="icon" />
+                    <Personalcard
+                      variant="Bulk"
+                      color="currentColor"
+                      className="icon"
+                    />
                     <input
                       aria-label="Last Name"
                       id="lastName"
@@ -293,7 +311,7 @@ const AuthForm: React.FC<{
                   </div>
                   {formik.touched.lastName && formik.errors.lastName ? (
                     <div className="form-error">
-                      {/* <Danger variant="Bulk" className="icon h-4 w-4" /> */}
+                      {/* <Danger variant="Bulk" color="currentColor" className="icon h-4 w-4" /> */}
                       <span className="dark:text-red-200">
                         {formik.errors.lastName}
                       </span>
@@ -306,7 +324,7 @@ const AuthForm: React.FC<{
               <div className="form-control flex grow flex-col gap-2">
                 {/* <label htmlFor="email">Email Address</label> */}
                 <div className="form-input">
-                  <Sms variant="Bulk" className="icon" />
+                  <Sms variant="Bulk" color="currentColor" className="icon" />
                   <input
                     aria-label="Email Address"
                     id="email"
@@ -317,7 +335,7 @@ const AuthForm: React.FC<{
                 </div>
                 {formik.touched.email && formik.errors.email ? (
                   <div className="form-error">
-                    {/* <Danger variant="Bulk" className="icon h-4 w-4" /> */}
+                    {/* <Danger variant="Bulk" color="currentColor" className="icon h-4 w-4" /> */}
                     <span className="dark:text-red-200">
                       {formik.errors.email}
                     </span>
@@ -329,7 +347,11 @@ const AuthForm: React.FC<{
               <div className="form-control flex grow flex-col gap-2">
                 {/* <label htmlFor="password">Password</label> */}
                 <div className="form-input">
-                  <PasswordCheck variant="Bulk" className="icon" />
+                  <PasswordCheck
+                    variant="Bulk"
+                    color="currentColor"
+                    className="icon"
+                  />
                   <input
                     aria-label="Password"
                     id="password"
@@ -337,27 +359,30 @@ const AuthForm: React.FC<{
                     placeholder="Password"
                     {...formik.getFieldProps("password")}
                   />
-                  {showPassword ? (
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword(false)}
-                      className="btn ghost"
-                    >
-                      <EyeSlash className="icon" />
-                    </button>
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword(true)}
-                      className="btn ghost"
-                    >
-                      <Eye className="icon" />
-                    </button>
-                  )}
+
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="btn ghost"
+                  >
+                    {showPassword ? (
+                      <EyeSlash
+                        className="icon"
+                        variant="Bulk"
+                        color="currentColor"
+                      />
+                    ) : (
+                      <Eye
+                        className="icon"
+                        variant="Bulk"
+                        color="currentColor"
+                      />
+                    )}
+                  </button>
                 </div>
                 {formik.touched.password && formik.errors.password ? (
                   <div className="form-error">
-                    {/* <Danger variant="Bulk" className="icon h-4 w-4" /> */}
+                    {/* <Danger variant="Bulk" color="currentColor" className="icon h-4 w-4" /> */}
                     <span className="dark:text-red-200">
                       {formik.errors.password}
                     </span>

@@ -62,7 +62,7 @@ const AuthUserButton: React.FC<{ user?: User | null }> = ({ user }) => {
                 <Link href={"/account"}>Account</Link>
               </DropdownMenuItem>
               <DropdownMenuItem className="px-4 py-3" asChild>
-                <Link href={"/apps"}>Apps</Link>
+                <Link href={"/notes"}>Notes</Link>
               </DropdownMenuItem>
               <DropdownMenuItem className="px-4 py-3" disabled>
                 Upgrade to Pro
