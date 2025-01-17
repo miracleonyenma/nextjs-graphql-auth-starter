@@ -1,7 +1,7 @@
 "use client";
 
 import { useUserStore } from "@/store/useUserStore";
-import { MeResponse } from "@/utils/auth/me";
+import { User } from "@/types/gql/graphql";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect } from "react";
 
@@ -11,8 +11,10 @@ const Auth = () => {
 
   const handleGetUser = useCallback(async () => {
     try {
-      const res = await fetch("/api/auth/me");
-      const data = (await res.json()) as { data: MeResponse };
+      const res = await fetch("/api/auth/me", {
+        cache: "no-store",
+      });
+      const data = (await res.json()) as { data: { me: User } };
       const userData = data?.data?.me;
       console.log(
         "🚀 ~ file: index.tsx ~ line 12 ~ handleGetUser ~ userData: ",
